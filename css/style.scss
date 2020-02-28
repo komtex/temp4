@@ -1,0 +1,76 @@
+/*variables*/
+$alpha: 0.7;
+$color: #252525;
+$color1: #fdfdfd;
+$color2: #54b7e6;
+/*nesting*/
+header {
+  nav{
+    position: absolute;
+    right: 10rem;
+    top: 2rem;
+    background: #ebd4d4;
+    padding: .5rem;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    }
+    li {
+      margin: 0;
+      display: inline-block;
+      border-right: 2px solid rgba(253, 253, 253, $alpha);
+      }
+    a {
+      @extend %message_all;
+      font-weight: 300;
+      letter-spacing: 5px;
+      text-shadow: 5px 5px 4px rgba(0, 0, 0, $alpha);
+      }
+
+}
+/*example of inherid*/
+%message_all {
+  padding: 2rem;
+  color: $color1;
+  font-size: 2rem;
+  font-family: cursive;
+  text-align: center;
+  text-transform: uppercase;
+}
+#logo {
+  @extend %message_all;
+  background: $color;
+  display: inline-block;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+}
+%message_share {
+  -webkit-box-shadow: 0 0 10px -3px $color;
+	box-shadow: 0 0 10px -3px $color;
+}
+#logo {
+  .brand {
+    @extend %message_share;
+    color: $color2;
+  }
+}
+#banner {
+  @extend %message_share;
+  color: $color1;
+  overflow: hidden;
+  position: relative;
+  height: 700px;
+}
+.titles {
+  @extend %message_share;
+  position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	width: 100%;
+	background: rgba(253, 253, 253, 0.8);
+	padding: 2rem;
+	border-top: 5px solid $color1;
+	border-bottom: 5px solid $color1;
+}
